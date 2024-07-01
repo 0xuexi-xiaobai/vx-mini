@@ -1,1 +1,1 @@
-# vx-mini
+# vx-mini-program
