@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "Ai Navigator",
+  "usingComponents": {
+    "fui-section": "/components/firstui/fui-section/fui-section",
+    "fui-list": "/components/firstui/fui-list/fui-list",
+    "fui-list-cell": "/components/firstui/fui-list-cell/fui-list-cell"
+  }
+}

@@ -1,0 +1,64 @@
+<!--index.wxml-->
+<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <fui-section title="{{title}}" isLine></fui-section>
+
+  <view>
+    <!-- <swiper class="activity" indicator-dots='true' display-multiple-items='1' current='{{ centerItem }}' bindchange='handleSwiperChange' autoplay='true' circular='true' interval='2000'>
+      <block wx:for="{{coverList}}" wx:key="id">
+        <swiper-item>
+          <view class='imageBox' style='text-align:center'>
+            <image src="{{item.url}}" width="355" height="155" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper> -->
+    <swiper class="activity" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <block wx:for="{{coverList}}" wx:key="id">
+        <swiper-item>
+          <image src="{{item.url}}" class="slide-image" width="355" height="155" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <fui-list bottomBorder size="32" title="带标题的列表">
+    <fui-list-cell highlight="{{false}}">标题文字</fui-list-cell>
+    <fui-list-cell bottomBorder="{{false}}" highlight="{{false}}" >标题文字</fui-list-cell>
+  </fui-list>
+
+  <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" wx:key="id">
+    <view class="feed-item">
+      <view class="feed-source">
+        <a class="">
+          <view class="avatar">
+            <image src="{{item.feed_source_img}}"></image>
+          </view>
+          <text>{{item.feed_source_name}}{{item.feed_source_txt}}</text>
+        </a>
+        <image class="item-more" mode="aspectFit" src="../../images/more.png"></image>
+      </view>
+      <view class="feed-content">
+        <view class="question" qid="{{question_id}}" bindtap="">
+          <a class="question-link">
+            <text>{{item.question}}</text>
+          </a>
+        </view>
+        <view class="product-body">
+          <view bindtap="bindItemTap">
+            <text class="product-txt" aid="{{product_id}}">{{item.product_ctnt}}</text>
+          </view>
+          <view class="product-actions" bindtap="bindItemTap">
+            <view class="like dot">
+              <a>{{item.good_num}} 赞同 </a>
+            </view>
+            <view class="comments dot">
+              <a>{{item.comment_num}} 评论 </a>
+            </view>
+            <view class="follow-it">
+              <a>关注问题</a>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
