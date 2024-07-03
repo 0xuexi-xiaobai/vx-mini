@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/notify/notify",
-    "pages/more/more"
+    "pages/more/more",
+    "pages/product/product"
   ],
   "window":{
     "backgroundTextStyle":"light",
