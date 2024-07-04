@@ -22,7 +22,7 @@ module.exports = {
 
 var index = require('../data/data_index.js')
 var index_next = require('../data/data_index_next.js')
-
+var prompt_content = require('../data/data_prompt_content.js')
 function getData(url){
   return new Promise(function(resolve, reject){
     wx.request({
@@ -47,6 +47,9 @@ function getData2(){
   return index.index;
 }
 
+function getPromptData(){
+  return prompt_content.prompt_content;
+}
 function getNext(){
   return index_next.next;
 }

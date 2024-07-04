@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "l-card": "/components/lin-ui/card/index"
+    "fui-card": "/components/firstui/fui-card/fui-card",
+    "fui-button": "/components/firstui/fui-button/fui-button" 
   }
 }

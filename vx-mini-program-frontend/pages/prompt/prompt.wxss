@@ -1,1 +1,16 @@
+
 /* pages/prompt/prompt.wxss */
+
+/* pages/prompt/prompt.wxss */
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw; /* 使容器占满整个视口宽度 */
+}
+
+.prompt-content {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}

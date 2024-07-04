@@ -1,4 +1,5 @@
 // pages/prompt/prompt.js
+var util = require('../../utils/util.js')
 Page({
 
   /**
@@ -6,6 +7,24 @@ Page({
    */
   data: {
     prompt_content: ""
+  },
+  // 点击复制
+  copywxtap: function (event) {
+    // wx.showToast({
+    //   title: '复制成功',
+    // })
+
+    wx.setClipboardData({
+      data: this.data.prompt_content, //复制的数据
+      // success: function (res) {
+      //   wx.getClipboardData({    //这个api是把拿到的数据放到电脑系统中的
+      //     success: function (res) {
+      //       console.log(res.data) // data
+      //     }
+      //   })
+      // }
+
+    })
   },
 
   /**
@@ -19,14 +38,10 @@ Page({
   },
   //使用本地 fake 数据实现刷新效果
   getData: function () {
-    var feed = util.getData2();
-    console.log("loaddata");
-    var feed_data = feed.data;
+    var prompt_content0 = util.getPromptData();
+    console.log("load-prompt_content");
     this.setData({
-      feed: feed_data,
-      feed_length: feed_data.length,
-      coverList: feed.coverList,
-      title: feed.title
+      prompt_content: prompt_content0.content,
     });
   },
   /**

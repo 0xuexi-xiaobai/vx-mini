@@ -1,10 +1,6 @@
-<!--pages/prompt/prompt.wxml-->
-<text>pages/prompt/prompt.wxml</text>
-    <!-- avatar -->
-    <l-card type="avatar" l-class="card" 
-    title="" describe="">
-        <!-- 此处为content -->
-        <view class="avter-content">
-        {{prompt_content}}
-        </view>
-  </l-card>
+<!-- pages/prompt/prompt.wxml -->
+<view class="container1">
+  <fui-card title="prompt" tag="点击复制" background="black" style="margin-bottom: 10rpx; margin-top: 10rpx;" bindtap="copywxtap">
+    <view class="prompt-content" style="color: #f7f7f7; padding: 8px;">{{prompt_content}}</view>
+  </fui-card>
+</view>
