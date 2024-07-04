@@ -1,0 +1,10 @@
+<!--pages/prompt/prompt.wxml-->
+<text>pages/prompt/prompt.wxml</text>
+    <!-- avatar -->
+    <l-card type="avatar" l-class="card" 
+    title="" describe="">
+        <!-- 此处为content -->
+        <view class="avter-content">
+        {{prompt_content}}
+        </view>
+  </l-card>

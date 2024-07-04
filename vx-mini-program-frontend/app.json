@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/notify/notify",
     "pages/more/more",
-    "pages/product/product"
+    "pages/product/product",
+    "pages/prompt/prompt"
   ],
   "window":{
     "backgroundTextStyle":"light",

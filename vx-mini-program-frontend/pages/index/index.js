@@ -6,14 +6,14 @@ Page({
   data: {
     feed: [],
     feed_length: 0,
-    title:"",
+    title: "",
     // 居中显示项的位置
     centerItem: 0,
     // 首页轮播图数据
     coverList: [
     ],
     circular: true,
-    
+
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -30,6 +30,11 @@ Page({
   bindItemTap: function () {
     wx.navigateTo({
       url: '../product/product'
+    })
+  },
+  bindPromptTap: function () {
+    wx.navigateTo({
+      url: '../prompt/prompt'
     })
   },
   onLoad: function () {
@@ -74,8 +79,8 @@ Page({
     this.setData({
       feed: feed_data,
       feed_length: feed_data.length,
-      coverList:feed.coverList,
-      title:feed.title
+      coverList: feed.coverList,
+      title: feed.title
     });
   },
   refresh: function () {
@@ -90,7 +95,7 @@ Page({
     this.setData({
       feed: feed_data,
       feed_length: feed_data.length,
-      coverList:feed.coverList
+      coverList: feed.coverList
     });
     setTimeout(function () {
       wx.showToast({

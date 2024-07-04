@@ -3,15 +3,6 @@
   <fui-section title="{{title}}" isLine></fui-section>
 
   <view>
-    <!-- <swiper class="activity" indicator-dots='true' display-multiple-items='1' current='{{ centerItem }}' bindchange='handleSwiperChange' autoplay='true' circular='true' interval='2000'>
-      <block wx:for="{{coverList}}" wx:key="id">
-        <swiper-item>
-          <view class='imageBox' style='text-align:center'>
-            <image src="{{item.url}}" width="355" height="155" />
-          </view>
-        </swiper-item>
-      </block>
-    </swiper> -->
     <swiper class="activity" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
       <block wx:for="{{coverList}}" wx:key="id">
         <swiper-item>
@@ -20,6 +11,11 @@
       </block>
     </swiper>
   </view>
+  <view style="display: flex; justify-content: space-around;">
+    <l-button shape="circle" plain="{{true}}">今日推荐</l-button>
+    <l-button shape="circle" plain="{{true}}" bindtap="bindPromptTap">prompt生成器</l-button>
+  </view>
+
   <l-card type="primary" image="../../../images/24213.jpg" title="新疆精选苹果">
     <!-- 此处为content -->
     <view class="content">

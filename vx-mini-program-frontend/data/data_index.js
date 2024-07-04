@@ -4,7 +4,7 @@
 module.exports = {
 
 }
-
+var prompt_content="test content";
 var index= {
     "id": 1,
     "title": "banner here",
@@ -128,3 +128,4 @@ var index= {
 }
 
 module.exports.index = index;
+module.exports.prompt_content = prompt_content;
