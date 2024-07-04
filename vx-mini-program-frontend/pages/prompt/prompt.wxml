@@ -1,6 +1,9 @@
 <!-- pages/prompt/prompt.wxml -->
 <view class="container1">
-  <fui-card title="prompt" tag="点击复制" background="black" style="margin-bottom: 10rpx; margin-top: 10rpx;" bindtap="copywxtap">
+  <fui-card background="black" headerBackground="#6" title="prompt" tag="点击复制"  style="margin-bottom: 10rpx; margin-top: 10rpx;" bindtap="copywxtap">
     <view class="prompt-content" style="color: #f7f7f7; padding: 8px;">{{prompt_content}}</view>
+  </fui-card>
+  <fui-card background="black" style="margin-bottom: 10rpx; margin-top: 10rpx; width: 100%; height: 100rpx; box-sizing: border-box;">
+    <fui-input borderTop placeholder="请输入prompt" backgroundColor="#333333" color="#ffffff"></fui-input>
   </fui-card>
 </view>

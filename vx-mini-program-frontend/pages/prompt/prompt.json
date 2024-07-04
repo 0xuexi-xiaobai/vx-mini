@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "fui-card": "/components/firstui/fui-card/fui-card",
-    "fui-button": "/components/firstui/fui-button/fui-button" 
+    "fui-button": "/components/firstui/fui-button/fui-button",
+    "fui-input": "/components/firstui/fui-input/fui-input" 
   }
 }
