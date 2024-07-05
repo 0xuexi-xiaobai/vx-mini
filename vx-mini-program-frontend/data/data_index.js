@@ -113,15 +113,21 @@ var index= {
     coverList: [
       {
         id: 0,
-        url: "../../images/24213.jpg"
+        url: "../../images/24213.jpg",
+        title:"title1",
+        desc:"desc1"
       },
       {
         id: 1,
-        url: "../../images/24280.jpg"
+        url: "../../images/24280.jpg",
+        title:"title2",
+        desc:"desc2"
       },
       {
         id: 2,
-        url:'../../images/1444983318907-_DSC1826.jpg'
+        url:'../../images/1444983318907-_DSC1826.jpg',
+        title:"title3",
+        desc:"desc3"
       }
     ],
 

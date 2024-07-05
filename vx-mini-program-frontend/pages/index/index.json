@@ -2,6 +2,7 @@
   "usingComponents": {
     "fui-section": "/components/firstui/fui-section/fui-section",
     "fui-list": "/components/firstui/fui-list/fui-list",
+    "fui-button": "/components/firstui/fui-button/fui-button",
     "fui-list-cell": "/components/firstui/fui-list-cell/fui-list-cell",
     "l-card":"/components/lin-ui/card/index",
     "l-button":"/components/lin-ui/button/index"

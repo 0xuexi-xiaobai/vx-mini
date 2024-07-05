@@ -66,7 +66,10 @@ Page({
 
     })
   },
-
+  searchBtn : function(event){ 
+    console.log("你点击了键盘搜索键") ;
+    console.log(event.detail);
+  },
   /**
    * 生命周期函数--监听页面加载
    */

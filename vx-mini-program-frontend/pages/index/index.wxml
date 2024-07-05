@@ -1,18 +1,30 @@
 <!--index.wxml-->
 <scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-  <!-- <fui-section title="{{title}}" isLine></fui-section> -->
+  <view style="text-align: center; ">
+    <view style="border-radius: 20rpx; background-color: #444444; color: #ffffff;  font-size: 50rpx;">banner</view>
 
-  
-  <view style="display: flex; justify-content: space-around;">
-    <l-button shape="circle" plain="{{true}}">今日推荐</l-button>
-    <l-button shape="circle" plain="{{true}}" bindtap="bindPromptTap">prompt生成器</l-button>
+
+    <view style="display: flex; font-size: 40rpx;;color: #ffffff; padding: 10rpx 0rpx 10rpx 0rpx;">
+      <view style="flex: 1;  background-color: #444444; margin-right:5rpx; border-radius: 12rpx">今日推荐</view>
+      <view style="flex: 1;  background-color: #444444; border-radius: 12rpx" bindtap="bindPromptTap">prompt生成器</view>
+    </view>
+
   </view>
-  <view>
+
+
+  <view style="display: flex; justify-content: center;">
     <swiper class="activity" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
       <block wx:for="{{coverList}}" wx:key="id">
-        <swiper-item>
-          <image src="{{item.url}}" class="slide-image" width="355" height="155" />
+        <swiper-item bindtap="bindItemTap">
+          <view class="slide-item">
+            <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+            <view class="slide-text">
+              <view class="slide-title">{{ item.title }}</view>
+              <view class="slide-desc">{{ item.desc }}</view>
+            </view>
+          </view>
         </swiper-item>
+
       </block>
     </swiper>
   </view>
