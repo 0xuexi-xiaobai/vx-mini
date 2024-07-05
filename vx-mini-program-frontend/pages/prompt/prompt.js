@@ -6,7 +6,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    prompt_content: ""
+    prompt_content: "",
+    // arr: [3, 2, 5, 7, 3, 7, 5, 4, 5, 7],
+    arr: [
+      {
+        "num": 0,
+        "prompt": "prompt example. prompt example. prompt example. prompt example.",
+        "prompt_image": "../../images/24213.jpg",
+      }, {
+        "num": 1,
+        "prompt": "prompt test. prompt test. prompt test. prompt test.",
+        "prompt_image": "../../images/24280.jpg",
+      },{
+        "num": 2,
+        "prompt": "prompt test22. prompt test22. prompt test22. prompt test22.",
+        "prompt_image": "../../images/1444983318907-_DSC1826.jpg",
+      },{
+        "num": 3,
+        "prompt": "prompt test33. prompt test33. prompt test33. prompt test33.",
+        "prompt_image": "../../images/24213.jpg",
+      },{
+        "num": 0,
+        "prompt": "prompt example. prompt example. prompt example. prompt example.",
+        "prompt_image": "../../images/24213.jpg",
+      }, {
+        "num": 1,
+        "prompt": "prompt test. prompt test. prompt test. prompt test.",
+        "prompt_image": "../../images/24280.jpg",
+      },{
+        "num": 2,
+        "prompt": "prompt test22. prompt test22. prompt test22. prompt test22.",
+        "prompt_image": "../../images/1444983318907-_DSC1826.jpg",
+      },
+    ]
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+    // let newArr = [5, 3, 4, 7, 8, 2, 1, 5, 7, 6]
+    // this.setData({ arr: [...this.data.arr, ...newArr] })
+    // this.setData({ arr: this.data.arr })
   },
   // 点击复制
   copywxtap: function (event) {
@@ -82,9 +122,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom() {
 
-  },
 
   /**
    * 用户点击右上角分享

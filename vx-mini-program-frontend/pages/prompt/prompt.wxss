@@ -1,6 +1,3 @@
-
-/* pages/prompt/prompt.wxss */
-
 /* pages/prompt/prompt.wxss */
 .container1 {
   display: flex;
@@ -13,4 +10,9 @@
   white-space: normal;
   word-wrap: break-word;
   word-break: break-all;
+}
+image{
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
 }
