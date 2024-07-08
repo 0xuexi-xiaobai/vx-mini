@@ -1,4 +1,4 @@
-<scroll-view class="fui-tabs__scrollbox {{isFixed && !isSticky?'fui-tabs__fixed':''}} {{isSticky?'fui-tabs__sticky':''}}" scroll-with-animation scroll-x="{{scroll}}" scroll-into-view="{{scrollInto}}" style="background:{{background}};z-index:{{isFixed || isSticky?zIndex:1}};top:{{isFixed || isSticky ? top + 'px' : 'auto'}}">
+<scroll-view enable-flex class="fui-tabs__scrollbox {{isFixed && !isSticky?'fui-tabs__fixed':''}} {{isSticky?'fui-tabs__sticky':''}}" scroll-with-animation scroll-x="{{scroll}}" scroll-into-view="{{scrollInto}}" style="background:{{background}};z-index:{{isFixed || isSticky?zIndex:1}};top:{{isFixed || isSticky ? top + 'px' : 'auto'}}">
   <view class="fui-scroll__view {{alignLeft?'':'fui-tabs__full'}}">
     <view wx:for="{{vals}}" wx:for-item="tab" wx:key="index" class="fui-tabs__item {{alignLeft?'':'fui-tabs__full'}}" style="padding-left: {{itemPadding}}rpx;padding-right: {{itemPadding}}rpx;" id="{{tab.fui_s_id}}" bindtap="switchTab" data-index="{{index}}">
       <view class="fui-tabs__text-wrap {{tab[disabledKey]?'fui-tabs__wrap-disabled':''}} {{direction==='column' && tab.icon?'fui-tabs__item-column':''}}" style="height:{{height}}rpx">

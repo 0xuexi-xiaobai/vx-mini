@@ -15,7 +15,6 @@
   width: 50rpx;
   height: 50rpx;
   vertical-align: middle;
-  float: right;
 }
 .notify-item{
   width: 680rpx;

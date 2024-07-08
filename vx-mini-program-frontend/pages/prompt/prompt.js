@@ -7,7 +7,6 @@ Page({
    */
   data: {
     prompt_content: "",
-    // arr: [3, 2, 5, 7, 3, 7, 5, 4, 5, 7],
     arr: [
       {
         "num": 0,

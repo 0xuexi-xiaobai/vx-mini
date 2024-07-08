@@ -1,16 +1,13 @@
 <!--index.wxml-->
 <scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+
   <view style="text-align: center; ">
-    <view style="border-radius: 20rpx; background-color: #444444; color: #ffffff;  font-size: 50rpx;">banner</view>
-
-
+    <view style="border-radius: 20rpx; background-color: #444444; color: #ffffff;  font-size: 50rpx;">{{banner}}</view>
     <view style="display: flex; font-size: 40rpx;;color: #ffffff; padding: 10rpx 0rpx 10rpx 0rpx;">
-      <view style="flex: 1;  background-color: #444444; margin-right:5rpx; border-radius: 12rpx">今日推荐</view>
-      <view style="flex: 1;  background-color: #444444; border-radius: 12rpx" bindtap="bindPromptTap">prompt生成器</view>
+      <view style="flex: 1;  background-color: #444444; margin-right:5rpx; border-radius: 12rpx">{{recommendation}}</view>
+      <view style="flex: 1;  background-color: #444444; border-radius: 12rpx" bindtap="bindPromptTap">{{prompt}}</view>
     </view>
-
   </view>
-
 
   <view style="display: flex; justify-content: center;">
     <swiper class="activity" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
@@ -24,56 +21,25 @@
             </view>
           </view>
         </swiper-item>
-
       </block>
     </swiper>
   </view>
-  <!-- <l-card type="primary" image="../../../images/24213.jpg" title="新疆精选苹果">
-    <view class="content">
-      新疆苹果,又名塞威氏苹果,蔷微科,落叶乔木。原产新疆西部天山北山麓,
-      主要集中分布于伊犁河谷果子沟,新源县境内的那拉提野果林,巩留的莫合
-      林场,垂直分布区域海拔在1000～1300m的山顶、山坡、河谷区域。
-    </view>
-  </l-card> -->
-  <!-- <fui-list bottomBorder size="32" title="带标题的列表">
-    <fui-list-cell highlight="{{false}}">标题文字</fui-list-cell>
-    <fui-list-cell bottomBorder="{{false}}" highlight="{{false}}">标题文字</fui-list-cell>
-  </fui-list> -->
 
-  <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" wx:key="id">
-    <view class="feed-item">
-      <view class="feed-source">
-        <a class="">
-          <view class="avatar">
-            <image src="{{item.feed_source_img}}"></image>
-          </view>
-          <text>{{item.feed_source_name}}{{item.feed_source_txt}}</text>
-        </a>
-        <image class="item-more" mode="aspectFit" src="../../images/more.png"></image>
-      </view>
-      <view class="feed-content">
-        <view class="question" qid="{{question_id}}" bindtap="">
-          <a class="question-link">
-            <text>{{item.question}}</text>
-          </a>
-        </view>
-        <view class="product-body">
-          <view bindtap="bindItemTap">
-            <text class="product-txt" aid="{{product_id}}">{{item.product_ctnt}}</text>
-          </view>
-          <view class="product-actions" bindtap="bindItemTap">
-            <view class="like dot">
-              <a>{{item.good_num}} 赞同 </a>
-            </view>
-            <view class="comments dot">
-              <a>{{item.comment_num}} 评论 </a>
-            </view>
-            <view class="follow-it">
-              <a>关注问题</a>
+  <block wx:for="{{productList}}" wx:key="id">
+    <fui-list bottomBorder size="32" title="{{item.title}}">
+      <block wx:for="{{item.cells}}" wx:key="id">
+        <fui-list-cell highlight="{{true}}" arrow="true" bind:tap="bindItemTap">
+          <view style="display: flex; flex-direction: row;">
+            <image wx:if="{{true}}" src="{{item.url}}" style="width: 100rpx; height: 100rpx;" />
+            <view style="display: flex; flex-direction: column; margin-left: 10rpx; justify-content: center;">
+              <text style="font-size: 25rpx;">{{item.productTitle}}</text>
+              <text style="font-size: 20rpx; color: #666666;">{{item.productDesc}}</text>
             </view>
           </view>
-        </view>
-      </view>
-    </view>
+        </fui-list-cell>
+      </block>
+    </fui-list>
   </block>
+
+
 </scroll-view>

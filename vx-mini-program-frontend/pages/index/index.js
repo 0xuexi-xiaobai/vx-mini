@@ -4,6 +4,76 @@ var util = require('../../utils/util.js')
 var app = getApp()
 Page({
   data: {
+    banner: "banner",
+    recommendation: "今日推荐",
+    prompt: "prompt生成器",
+    productList: [
+      {
+        id: 0,
+        title: "AIGC热门推荐1",
+        cells: [{
+          url: "../../images/24213.jpg",
+          productTitle: "标题文字说明文字很长0",
+          productDesc: "说明文字"
+        },
+        {
+          url: "../../images/24213.jpg",
+          productTitle: "标题文字说明文字很长0.1",
+          productDesc: "说明文字"
+        },
+        ],
+
+        desc: "desc1"
+      }, {
+        id: 1,
+        title: "AIGC热门推荐2",
+        cells: [
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长1",
+            productDesc: "说明文字"
+          },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长1.1",
+            productDesc: "说明文字"
+          },
+        ],
+        desc: "desc1"
+      },
+      {
+        id: 2,
+        title: "AIGC热门推荐3",
+        cells: [
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长2",
+            productDesc: "说明文字"
+          },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长2.2",
+            productDesc: "说明文字"
+          },
+        ],
+      },
+      {
+        id: 3,
+        title: "AIGC热门推荐4",
+        cells: [
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长4",
+            productDesc: "说明文字"
+          },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长4.2",
+            productDesc: "说明文字"
+          },
+        ],
+      },
+    ],
     feed: [],
     feed_length: 0,
     title: "",
@@ -13,7 +83,6 @@ Page({
     coverList: [
     ],
     circular: true,
-
     indicatorDots: true,
     autoplay: false,
     interval: 5000,

@@ -1,6 +1,6 @@
 <view class="fui-dropdown__list-wrap {{isShow?'fui-dropdown__list-show':''}}" style="background:{{maskBackground}};z-index:{{zIndex}}" bindtap="close">
   <view class="fui-dropdown__list" style="border-radius:{{radius}}rpx;background:{{background}}">
-    <scroll-view class="fui-ddl__scroll" scroll-y style="{{parse.getStyles(height, width)}}">
+    <scroll-view class="fui-ddl__scroll" scroll-y style="{{parse.getStyles(height, width)}}" enable-flex>
       <slot></slot>
       <view class="fui-dropdown__list-item {{isReverse?'fui-ddl__reverse':''}} {{splitLine && itemList.length-1!==index?'fui-ddl__item-line':''}}" style="background:{{background}};padding:{{padding}};" wx:for="{{itemList}}" wx:for-item="model" wx:key="index" catchtap="itemClick" data-index="{{index}}">
         <view class="fui-ddl__checkbox {{isCheckMark?'fui-is__checkmark':''}} {{(!checkboxColor || checkboxColor=='true') && model[checkedKey] && !isCheckMark?'fui-ddl__checkbox-color':''}}" style="background:{{model[checkedKey] && !isCheckMark ?checkboxColor:'transparent'}};border-color:{{model[checkedKey] && !isCheckMark ?checkboxColor:borderColor}}" wx:if="{{isCheckbox}}">
