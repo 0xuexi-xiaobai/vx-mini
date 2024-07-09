@@ -25,8 +25,8 @@ public class Product {
     //图片链接
     private String imageUrl;
 
-    //产品分类
-    private String category;
+    //所属产品分类
+    private String cateId;
 
     //产品链接
     private String url;

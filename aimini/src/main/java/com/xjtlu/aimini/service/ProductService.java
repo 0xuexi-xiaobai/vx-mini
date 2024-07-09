@@ -2,6 +2,8 @@ package com.xjtlu.aimini.service;
 
 import com.xjtlu.aimini.entity.Product;
 
+import java.util.List;
+
 public interface ProductService {
 
     boolean exist(Product u);
@@ -11,6 +13,8 @@ public interface ProductService {
 
 //    获取产品信息
     Product getProduct(long id);
+
+    List<List<Product>> getProductList(int page, int pageSize);
 
 //    通过产品名获得产品id
     long getProductId(String productName);
