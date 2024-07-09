@@ -11,6 +11,10 @@ Component({
       type: String,
       value: ''
     },
+    cc: {
+      type: String,
+      value: ''
+    },
     //标题颜色
     color: {
       type: String,

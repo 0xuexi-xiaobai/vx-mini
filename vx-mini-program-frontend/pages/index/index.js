@@ -11,20 +11,33 @@ Page({
       {
         id: 0,
         title: "AIGC热门推荐1",
-        cells: [{
-          url: "../../images/24213.jpg",
-          productTitle: "标题文字说明文字很长0",
-          productDesc: "说明文字"
-        },
-        {
-          url: "../../images/24213.jpg",
-          productTitle: "标题文字说明文字很长0.1",
-          productDesc: "说明文字"
-        },
+        cells: [
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长0",
+            productDesc: "说明文字"
+          },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长0.1",
+            productDesc: "说明文字"
+          },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长0",
+            productDesc: "说明文字"
+          },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长0.1",
+            productDesc: "说明文字"
+          },
         ],
-
-        desc: "desc1"
-      }, {
+        desc: "desc1",
+        showAll: false,
+        displayCells: []
+      },
+      {
         id: 1,
         title: "AIGC热门推荐2",
         cells: [
@@ -38,8 +51,20 @@ Page({
             productTitle: "标题文字说明文字很长1.1",
             productDesc: "说明文字"
           },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长1",
+            productDesc: "说明文字"
+          },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长1.1",
+            productDesc: "说明文字"
+          },
         ],
-        desc: "desc1"
+        desc: "desc1",
+        showAll: false,
+        displayCells: []
       },
       {
         id: 2,
@@ -55,7 +80,20 @@ Page({
             productTitle: "标题文字说明文字很长2.2",
             productDesc: "说明文字"
           },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长2",
+            productDesc: "说明文字"
+          },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长2.2",
+            productDesc: "说明文字"
+          },
         ],
+        desc: "desc1",
+        showAll: false,
+        displayCells: []
       },
       {
         id: 3,
@@ -71,49 +109,71 @@ Page({
             productTitle: "标题文字说明文字很长4.2",
             productDesc: "说明文字"
           },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长4.2",
+            productDesc: "说明文字"
+          },
+          {
+            url: "../../images/24213.jpg",
+            productTitle: "标题文字说明文字很长4.2",
+            productDesc: "说明文字"
+          },
         ],
+        desc: "desc1",
+        showAll: false,
+        displayCells: []
       },
     ],
+    showAll: false,
     feed: [],
     feed_length: 0,
     title: "",
-    // 居中显示项的位置
     centerItem: 0,
-    // 首页轮播图数据
-    coverList: [
-    ],
+    coverList: [],
     circular: true,
     indicatorDots: true,
     autoplay: false,
     interval: 5000,
     duration: 1000,
   },
-  //轮播图滑动时改变居中项
+  onLoad: function () {
+    console.log('onLoad')
+    var that = this;
+    this.updateDisplayCells();
+    this.getData();
+  },
+  updateDisplayCells: function() {
+    let productList = this.data.productList.map(item => {
+      item.displayCells = item.showAll ? item.cells : item.cells.slice(0, 3);
+      return item;
+    });
+    this.setData({ productList });
+  },
+  toggleShowAll: function(e) {
+    const index = e.currentTarget.dataset.index;
+    const productList = this.data.productList;
+    productList[index].showAll = !productList[index].showAll;
+    this.updateDisplayCells();
+  },
   handleSwiperChange(e) {
     this.setData({
       centerItem: e.detail.current,
-    })
+    });
   },
-
-  //事件处理函数
   bindItemTap: function () {
+    console.log('Item Tapped');
     wx.navigateTo({
       url: '../product/product'
-    })
+    });
   },
   bindPromptTap: function () {
     wx.navigateTo({
       url: '../prompt/prompt'
-    })
-  },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    this.getData();
+    });
   },
   upper: function () {
-    wx.showNavigationBarLoading()
+    wx.showNavigationBarLoading();
     this.refresh();
     console.log("upper");
     setTimeout(function () { wx.hideNavigationBarLoading(); wx.stopPullDownRefresh(); }, 2000);
@@ -122,25 +182,15 @@ Page({
     wx.showNavigationBarLoading();
     var that = this;
     setTimeout(function () { wx.hideNavigationBarLoading(); that.nextLoad(); }, 1000);
-    console.log("lower")
+    console.log("lower");
   },
-  //scroll: function (e) {
-  //  console.log("scroll")
-  //},
-
-  //网络请求数据, 实现首页刷新
   refresh0: function () {
     var index_api = '';
     util.getData(index_api)
       .then(function (data) {
-        //this.setData({
-        //
-        //});
         console.log(data);
       });
   },
-
-  //使用本地 fake 数据实现刷新效果
   getData: function () {
     var feed = util.getData2();
     console.log("loaddata");
@@ -171,18 +221,15 @@ Page({
         title: '刷新成功',
         icon: 'success',
         duration: 2000
-      })
-    }, 3000)
-
+      });
+    }, 3000);
   },
-
-  //使用本地 fake 数据实现继续加载效果
   nextLoad: function () {
     wx.showToast({
       title: '加载中',
       icon: 'loading',
       duration: 4000
-    })
+    });
     var next = util.getNext();
     console.log("continueload");
     var next_data = next.data;
@@ -195,9 +242,8 @@ Page({
         title: '加载成功',
         icon: 'success',
         duration: 2000
-      })
-    }, 3000)
+      });
+    }, 3000);
   }
+});
 
-
-})
