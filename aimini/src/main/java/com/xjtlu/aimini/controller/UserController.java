@@ -33,9 +33,7 @@ public class UserController {
     @GetMapping("/register")
     public String register(@RequestBody String json) {
         User user = JSON.parseObject(json, User.class);
-        User name = new User();
-        name.setUsername(user.getUsername());
-        boolean exist = userService.exist(name);
+        boolean exist = userService.exist(User.builder().username(user.getUsername()).build());
         if (exist) {
             Result res = Result.create(300, "name duplicated", user.getUsername());
             return JSON.toJSONString(res);

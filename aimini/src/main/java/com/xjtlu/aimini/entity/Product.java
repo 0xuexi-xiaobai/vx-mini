@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 //产品
 @Setter
 @Getter
@@ -25,9 +27,19 @@ public class Product {
     //图片链接
     private String imageUrl;
 
-    //所属产品分类
-    private String cateId;
+    //所属产品分类id
+    private String category;
+
+    //所属产品分类id
+    private long cateId;
 
     //产品链接
     private String url;
+
+    //产品logo链接
+    private String logoUrl;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

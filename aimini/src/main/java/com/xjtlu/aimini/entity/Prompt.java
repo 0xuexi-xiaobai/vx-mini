@@ -8,18 +8,19 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class Category {
+@NoArgsConstructor
+@Builder
+public class Prompt {
 
-    private long id;
+    private String id;
 
-    private String name;
+    private String value;
 
-    private String description;
+    private String imgUrl;
 
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
 }

@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int saveUser(User u) {
+        u.setCreatedAt(LocalDateTime.now());
          return userMapper.insert(u);
     }
 
@@ -96,7 +97,7 @@ public class UserServiceImpl implements UserService {
         if(user == null){
             user = User.builder()
                     .openid(openid)
-                    .createTime(LocalDateTime.now())
+                    .createdAt(LocalDateTime.now())
                     .build();
             userMapper.insert(user);
         }

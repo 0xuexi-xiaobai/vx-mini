@@ -10,6 +10,7 @@ import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +43,7 @@ public class CategoryServiceImpl {
     }
 
     public int addCategory(Category category) {
+        category.setCreatedAt(LocalDateTime.now());
         return categoryMapper.insert(category);
     }
 

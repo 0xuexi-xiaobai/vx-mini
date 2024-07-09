@@ -34,7 +34,9 @@ public class User implements Serializable {
 
     private String phone;
 
-    private LocalDateTime createTime;
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 //    the time that the user registered
 //    private String born_time;
 
