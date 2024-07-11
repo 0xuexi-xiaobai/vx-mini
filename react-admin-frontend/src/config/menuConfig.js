@@ -10,8 +10,14 @@ const menuList = [
     roles:["admin","editor","guest"]
   },
   {
-    title: "作者博客",
+    title: "banner",
     path: "/doc",
+    icon: "file",
+    roles:["admin","editor","guest"]
+  },
+  {
+    title: "轮播图",
+    path: "/swiper",
     icon: "file",
     roles:["admin","editor","guest"]
   },
