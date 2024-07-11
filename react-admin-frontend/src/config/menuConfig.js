@@ -12,19 +12,19 @@ const menuList = [
   {
     title: "banner",
     path: "/doc",
-    icon: "file",
+    icon: "key",
     roles:["admin","editor","guest"]
   },
   {
     title: "轮播图",
     path: "/swiper",
-    icon: "file",
+    icon: "key",
     roles:["admin","editor","guest"]
   },
   {
     title: "引导页",
     path: "/guide",
-    icon: "key",
+    icon: "file",
     roles:["admin","editor"]
   },
   {

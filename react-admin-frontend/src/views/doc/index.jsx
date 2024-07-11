@@ -1,63 +1,52 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, notification } from 'antd';
-import TypingCard from '@/components/TypingCard';
+import { Card, Input, Button } from 'antd';
 import { updateBanner, getBanner } from '../../api/banner';
 
+const defaultTitle = '默认文档标题';
+
 const Doc = () => {
-  const [bannerValue, setBannerValue] = useState('');
-  const [bannerTitle, setBannerTitle] = useState('');
+  const [title, setTitle] = useState(defaultTitle);
 
   useEffect(() => {
-    fetchBannerTitle();
+    fetchData();
   }, []);
 
-  const fetchBannerTitle = async () => {
-    let title;
+  const fetchData = async () => {
     try {
-      title = await getBanner();
+      const fetchedTitle = await getBanner();
+      setTitle(fetchedTitle || defaultTitle);
     } catch (error) {
-      console.error('Error fetching banner title:', error);
+      console.error('Error fetching document title:', error);
+      setTitle(defaultTitle);
     }
-    setBannerTitle(title || "no banner api");
   };
 
   const handleInputChange = (e) => {
-    setBannerValue(e.target.value);
+    setTitle(e.target.value);
   };
 
-  const handleButtonClick = () => {
-    // 发送请求
-    updateBanner(bannerValue)
-      .then(response => {
-        console.log('Response:', response);
-        notification.success({
-          message: '请求成功',
-          description: '你的请求已成功发送。',
-        });
-        // 更新成功后，重新获取banner标题
-        fetchBannerTitle();
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        notification.error({
-          message: '请求失败',
-          description: '发送请求时出现错误，请稍后再试。',
-        });
-      });
+  const handleUpdateClick = async () => {
+    try {
+      await updateBanner(title);
+      console.log('Document title updated successfully:', title);
+      fetchData();
+    } catch (error) {
+      console.error('Error updating document title:', error);
+    }
   };
 
   return (
     <div className="app-container">
-      <TypingCard title="小程序banner" source={bannerTitle} />
-      <Input
-        size="large"
-        placeholder="输入新的banner"
-        value={bannerValue}
-        onChange={handleInputChange}
-      />
-      <Button type="primary" onClick={handleButtonClick}>
-        更新banner
-      </Button>
+      <Card title="编辑标题" style={{ width: 400 }}>
+        <Input
+          placeholder="文档标题"
+          value={title}
+          onChange={handleInputChange}
+        />
+        <Button type="primary" style={{ marginTop: '10px' }} onClick={handleUpdateClick}>
+          更新文档标题
+        </Button>
+      </Card>
     </div>
   );
 };

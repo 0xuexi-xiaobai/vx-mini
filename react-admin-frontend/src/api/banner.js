@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function updateBanner(data) {
     return request({
-      url: '/banner',
+      url: '/app/updateApp',
       method: 'post',
       data
     })
@@ -10,7 +10,7 @@ export function updateBanner(data) {
 
 export function getBanner() {
     return request({
-      url: '/banner',
+      url: '/app/getApp',
       method: 'get',
     })
 }

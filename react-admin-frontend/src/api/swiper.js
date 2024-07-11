@@ -10,7 +10,7 @@ export function updateSwiper(data) {
 
 export function getSwipers() {
     return request({
-      url: '/swiper',
+      url: '/product/getRecommendedProductList',
       method: 'get',
     })
 }
