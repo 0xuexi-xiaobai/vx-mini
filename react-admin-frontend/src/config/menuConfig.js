@@ -22,6 +22,12 @@ const menuList = [
     roles:["admin","editor","guest"]
   },
   {
+    title: "提示词",
+    path: "/prompt",
+    icon: "key",
+    roles:["admin","editor","guest"]
+  },
+  {
     title: "引导页",
     path: "/guide",
     icon: "file",
