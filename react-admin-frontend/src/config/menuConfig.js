@@ -28,6 +28,12 @@ const menuList = [
     roles:["admin","editor","guest"]
   },
   {
+    title: "产品页",
+    path: "/product",
+    icon: "key",
+    roles:["admin","editor","guest"]
+  },
+  {
     title: "引导页",
     path: "/guide",
     icon: "file",

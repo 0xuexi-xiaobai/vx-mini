@@ -5,6 +5,7 @@ const Doc = Loadable({loader: () => import(/*webpackChunkName:'Doc'*/'@/views/do
 const Guide = Loadable({loader: () => import(/*webpackChunkName:'Guide'*/'@/views/guide'),loading: Loading});
 const Swiper = Loadable({loader: () => import(/*webpackChunkName:'Swiper'*/'@/views/swiper'),loading: Loading});
 const Prompt = Loadable({loader: () => import(/*webpackChunkName:'Prompt'*/'@/views/prompt'),loading: Loading});
+const Product = Loadable({loader: () => import(/*webpackChunkName:'Product'*/'@/views/product'),loading: Loading});
 const Explanation = Loadable({loader: () => import(/*webpackChunkName:'Explanation'*/'@/views/permission'),loading: Loading});
 const AdminPage = Loadable({loader: () => import(/*webpackChunkName:'AdminPage'*/'@/views/permission/adminPage'),loading: Loading});
 const GuestPage = Loadable({loader: () => import(/*webpackChunkName:'GuestPage'*/'@/views/permission/guestPage'),loading: Loading});
@@ -33,6 +34,7 @@ export default [
   { path: "/guide", component: Guide, roles: ["admin","editor"] },
   { path: "/swiper", component: Swiper, roles: ["admin","editor"] },
   { path: "/prompt", component: Prompt, roles: ["admin","editor"] },
+  { path: "/product", component: Product, roles: ["admin","editor"] },
   { path: "/permission/explanation", component: Explanation, roles: ["admin"] },
   { path: "/permission/adminPage", component: AdminPage, roles: ["admin"] },
   { path: "/permission/guestPage", component: GuestPage, roles: ["guest"] },
