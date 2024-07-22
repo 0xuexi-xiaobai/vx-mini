@@ -1,0 +1,42 @@
+<view class="component" style="color: {{color}};">
+  <!-- 状态栏区域 -->
+  <view class="statusBar" style="{{system.statusBarStyle}};Background-color:{{backgroundColor}};backGround:{{background}}"></view>
+  <!-- 导航栏区域 -->
+  <block wx:if="{{barStyle == 1 || barStyle == 3}}">
+    <view class="navigationBar" style="{{system.navigationBarStyle}};Background-color:{{backgroundColor}};backGround:{{background}}">
+      <!-- 可用区域 -->
+      <view class="navigationBar-content border-box" style="width: {{system.menu.left}}px;padding: 0 {{system.systemInfo.windowWidth - (system.menu.left + system.menu.width)}}px;">
+        <view class="back" catchtap="back" wx:if="{{showBackButton}}">
+          <view class="icon" style="border-color: black;"></view>
+        </view>
+        <view class="flex-1" style="padding-right: {{system.systemInfo.windowWidth - (system.menu.left + system.menu.width)}}px;">
+          <slot></slot>
+        </view>
+      </view>
+      <!-- 小程序自带胶囊按钮 -->
+      <view class="menuButton" style="{{system.menuButtonStyle}}"></view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="navigationBar flex-between" style="{{system.navigationBarStyle}};Background-color:{{backgroundColor}};backGround:{{background}}">
+      <!-- 左侧占位区域 -->
+      <view class="navigation-placeholder" style="width: {{system.menu.width}}px;padding: 0 {{system.systemInfo.windowWidth - (system.menu.left + system.menu.width)}}px;">
+        <view class="back" catchtap="back">
+          <view class="icon" style="border-color: {{color}};"></view>
+        </view>
+      </view>
+      <view class="navigationBar-content flex-1">
+        <slot></slot>
+      </view>
+      <!-- 右侧占位区域 -->
+      <view class="navigation-placeholder" style="width: {{system.menu.width}}px;padding: 0 {{system.systemInfo.windowWidth - (system.menu.left + system.menu.width)}}px;">
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{barStyle != 3}}">
+    <!-- 状态占位区域 -->
+    <view class="statusPlaceholder" style="height:{{system.statusBarStyle}};"></view>
+    <!-- 导航栏占位区域 -->
+    <view class="navigationPlaceholder" style="{{system.navigationBarStyle}}"></view>
+  </block>
+</view>

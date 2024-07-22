@@ -1,3 +1,14 @@
+<!-- banner -->
+<view class="page">
+    <custom-navigation-bar id="customNavigationBar" bar-style="3" showBackButton='{{false}}'>
+      <view style="width: 100%;height: 100%; color:black" class="flex-col-center">test
+      </view>
+    </custom-navigation-bar>
+    <view>
+    </view>
+    <view class="navigation">
+    </view>
+  </view>
 
 <view class="container more">
   <view class="user flex-wrp">

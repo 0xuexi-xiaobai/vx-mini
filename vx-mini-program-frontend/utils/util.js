@@ -1,3 +1,5 @@
+// request.js
+const config = require('./config.js');
 function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
@@ -23,6 +25,9 @@ module.exports = {
 var index = require('../data/data_index.js')
 var index_next = require('../data/data_index_next.js')
 var prompt_content = require('../data/data_prompt_content.js')
+
+
+
 function getData(url){
   return new Promise(function(resolve, reject){
     wx.request({
@@ -42,7 +47,29 @@ function getData(url){
     })
   })
 }
-
+// function getData(url, data, method) {
+  // const fullUrl = `${config.BASE_URL}${url}`;
+//   const jsonString = JSON.stringify(data);
+//   const fullUrl ='http://106.15.201.163:8080'+url;
+//   return new Promise((resolve, reject) => {
+//     wx.request({
+//       url: fullUrl,
+//       method: 'GET',
+//       header: {
+//         'Content-Type': 'application/json'
+//       },
+//       body :jsonString,
+//       success: function(res) {
+//         console.log("success");
+//         resolve(res);
+//       },
+//       fail: function(res) {
+//         reject(res);
+//         console.log("failed");
+//       }
+//     });
+//   });
+// }
 function getData2(){
   return index.index;
 }

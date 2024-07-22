@@ -7,13 +7,9 @@
   justify-content: space-between;
   /*padding: 200rpx 0;*/
   box-sizing: border-box;
-  background: #F0F4F3;
+  /* background: #F0F4F3; */
 }
 
-.container.withtab{
-  margin: 105rpx 0 0 0;
-  /*top: 105rpx;*/
-}
 .flex-wrp{
   display: flex;
 }
@@ -70,7 +66,7 @@
   display: inline-block;
   height: 40rpx;
 }
-.container .feed-item .feed-source .avatar image{
+.container .feed-item .feed-source .avatar{
   /*position: absolute;*/
   display: inline-block;
   width: 45rpx;

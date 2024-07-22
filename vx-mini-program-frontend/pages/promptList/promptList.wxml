@@ -1,0 +1,33 @@
+<!-- banner -->
+<view class="page">
+    <custom-navigation-bar id="customNavigationBar" bar-style="3" showBackButton='{{false}}'>
+      <view style="width: 100%;height: 100%; color:black" class="flex-col-center">test
+      </view>
+    </custom-navigation-bar>
+    <view>
+    </view>
+    <view class="navigation">
+    </view>
+  </view>
+<!-- pages/prompt/prompt.wxml -->
+<view class="container1">
+  <fui-card background="black" headerBackground="#6" title="prompt" tag="点击复制" style="margin-bottom: 10rpx; margin-top: 10rpx;" bindtap="copywxtap">
+    <view class="prompt-content" style="color: #f7f7f7; padding: 8px;">{{prompt_content}}</view>
+  </fui-card>
+  <fui-card background="black" style="margin-bottom: 10rpx; margin-top: 10rpx; width: 100%; height: 100rpx; box-sizing: border-box;">
+    <fui-input borderTop placeholder="请输入prompt" backgroundColor="#333333" color="#ffffff" bindconfirm="searchBtn"></fui-input>
+  </fui-card>
+</view>
+
+<scroll-view type="custom" scroll-y style="box-sizing:border-box; padding: 30rpx;">
+  <grid-view type="masonry" main-axis-gap="{{10}}" cross-axis-gap="{{10}}">
+    <view wx:for="{{arr}}" style="border:1rpx solid black; border-radius:20rpx;">
+      <view style="width: 100%;">
+        <image src="{{item.prompt_image}}" bindtap="bindPromptTap" mode="widthFix" style="width: 100%; height: auto; border-radius:20rpx ;" />
+      </view>
+      <view style="font-size: 30rpx; margin-left: 5rpx;">
+        <!-- {{item.prompt}} -->
+      </view>
+    </view>
+  </grid-view>
+</scroll-view>

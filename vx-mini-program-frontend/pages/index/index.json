@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "fui-list": "/components/firstui/fui-list/fui-list",
-    "fui-list-cell": "/components/firstui/fui-list-cell/fui-list-cell"
+    "fui-list-cell": "/components/firstui/fui-list-cell/fui-list-cell",
+    "custom-navigation-bar": "/components/custom-navigation-bar/custom-navigation-bar"
   }
 }

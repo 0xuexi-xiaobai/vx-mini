@@ -1,0 +1,76 @@
+/* components/custom-navigation-bar/custom-navigation-bar.wxss */
+.component{
+  color: #fff;
+}
+.statusBar,.navigationBar,.menuButton{
+  position: fixed;
+  z-index: 10000;
+}
+/* 默认顶部背景色 */
+.statusBar,.navigationBar{
+  /* background-color:   #E6F7FF; */
+  background-color:   #ffffff;
+}
+.navigationBar-content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.navigationBar-content.border-box{
+  box-sizing: border-box;
+}
+.navigationBar-content,.navigation-placeholder{
+  position: relative;
+  font-size: 10pt;
+}
+.back{
+  position: relative;
+  width: 40rpx;
+  height: 100%;
+}
+.back .icon{
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform-origin: center;
+  width: 20rpx;
+  height: 20rpx;
+  border: 5rpx solid #fff;
+  border-top-width: 0;
+  border-right-width: 0;
+}
+
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-1{
+  flex: 1;
+}
+
+
+/* 以下为展示各个区域位置的样式 */
+/* .component{
+  background-color: red;
+}
+.statusBar{
+  background-color: yellowgreen;
+}
+.navigationBar{
+  background-color: blueviolet;
+}
+.navigationBar .content{
+  background-color: palegreen;
+}
+.menuButton{
+  background-color: royalblue;
+}
+.navigationBar-content{
+  background-color: sandybrown;
+} */

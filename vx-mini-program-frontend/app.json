@@ -1,39 +1,44 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/notify/notify",
     "pages/more/more",
     "pages/product/product",
-    "pages/prompt/prompt"
+    "pages/prompt/prompt",
+    "pages/promptList/promptList",
+    "pages/test/test"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#222222",
-    "navigationBarTitleText": "Ai Navigator",
-    "navigationBarTextStyle":"white",
-    "enablePullDownRefresh":true
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "标题",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff",
+    "enablePullDownRefresh": true,
+    "navigationStyle": "custom"
   },
   "tabBar": {
-    "color": "#626567",
-    "selectedColor": "#2A8CE5",
-    "backgroundColor": "#000000",
-    "borderStyle": "white",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "",
-      "iconPath": "images/index.png",
-      "selectedIconPath": "images/index_focus.png"
-    },{
-      "pagePath": "pages/notify/notify",
-      "text": "",
-      "iconPath": "images/ring.png",
-      "selectedIconPath": "images/ring_focus.png"
-    },{
-      "pagePath": "pages/more/more",
-      "text": "",
-      "iconPath": "images/burger.png",
-      "selectedIconPath": "images/burger_focus.png"
-    }]
+    "color": "#cccccc",
+    "selectedColor": "#000000",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_focus.png"
+      }, {
+        "pagePath": "pages/promptList/promptList",
+        "text": "活+动",
+        "iconPath": "images/discovery.png",
+        "selectedIconPath": "images/discovery_focus.png"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "个人",
+        "iconPath": "images/burger.png",
+        "selectedIconPath": "images/burger_focus.png"
+      }
+    ]
   },
   "networkTimeout": {
     "request": 10000,

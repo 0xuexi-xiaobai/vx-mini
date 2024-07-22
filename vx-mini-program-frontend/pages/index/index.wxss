@@ -1,92 +1,29 @@
-/**index.wxss**/
-
 .container {
-  padding: 10rpx 10rpx 10rpx 10rpx;
+  padding: 10rpx 35rpx 10rpx 35rpx;
   font-size: 14rpx;
   background: #F0F4F3;
   color: #000;
 }
 
-.container .search {
-  width: 735rpx;
-  height: 65rpx;
-  padding: 12.5rpx 12.5rpx 12.5rpx 12.5rpx;
-  background: #2A8CE5;
+.container .child-element {
+  margin-top: 20rpx;
 }
-
-.container .search-left {
-  flex: 8;
-  background: #4EA3E7;
-  text-align: left;
-}
-
-.container .search-left input {
-  display: inline-block;
-  height: 65rpx;
-  font-size: 26rpx;
-}
-
-.search-placeholder {
-  color: #8CCEFD;
-  line-height: 20rpx;
-}
-
-.container .search .search-left image {
-  display: inline-block;
-  width: 35rpx;
-  height: 35rpx;
-  padding: 15rpx 15rpx 15rpx 15rpx;
-}
-
-.container .search .search-right {
-  flex: 1;
-}
-
-.container .search .search-right image {
-  width: 45rpx;
-  height: 45rpx;
-  padding: 10rpx;
-}
-
-
-
-/**index.wxss**/
 
 .activity {
-  width: 730rpx;
-  height: 375rpx;
-}
-
-.outer-view {
-  /* border: 2rpx solid black; */
-  text-align: center;
-
-}
-
-.inner-view {
-  font-size: 32rpx;
-  text-align: center;
-  background-color: #f0f0f0;
-  margin-top: 10rpx;
-  margin-bottom: 10rpx;
-  padding: 5rpx;
-  border: 2rpx solid #999;
-  border-radius: 10rpx;
-  margin-left: 150rpx;
-  margin-right: 150rpx;
-  border-radius: 10rpx;
+  width: 690rpx;
+  height: 240rpx;
 }
 
 .slide-item {
   position: relative;
   width: 100%;
   height: 100%;
-  /* 适合您的图片尺寸 */
 }
 
 .slide-image {
   width: 100%;
   height: 100%;
+  border-radius: 5%;
 }
 
 .slide-text {
@@ -95,10 +32,8 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  /* 设置文本背景颜色及透明度 */
   color: #ffffff;
   padding: 10px;
-  /* 调整文字的内边距 */
 }
 
 .slide-title {
@@ -111,5 +46,82 @@
   font-size: 16px;
 }
 
+.swiper-container {
+  border-radius: 20rpx;
+  overflow: hidden;
+}
 
-/*feed-item part is in app.wxss for multiplexing*/
+.list-item {
+  padding: 10rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.title-section {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 35rpx;
+  font-weight: bold;
+  color: #999;
+}
+
+.arrow-right {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  position: absolute;
+  right: 20rpx;
+  transform: rotate(45deg);
+  margin-top: 10rpx;
+}
+
+.arrow-down {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  position: absolute;
+  right: 20rpx;
+  transform: rotate(135deg);
+  margin-top: 10rpx;
+}
+
+.cell {
+  border-radius: 20rpx;
+  display: flex;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  border: 1rpx solid #ddd;
+}
+
+.cell-content {
+  display: flex;
+  padding: 20rpx;
+}
+
+.image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.details {
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  margin-bottom: 5rpx;
+}
+
+@import "/assets/css/flex.wxss";
+.navigation{
+  margin-top: 170rpx;
+}

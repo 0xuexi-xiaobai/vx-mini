@@ -138,7 +138,6 @@ Page({
     duration: 1000,
   },
   onLoad: function () {
-    console.log('onLoad')
     var that = this;
     this.updateDisplayCells();
     this.getData();
@@ -168,8 +167,9 @@ Page({
     });
   },
   bindPromptTap: function () {
-    wx.navigateTo({
-      url: '../prompt/prompt'
+    console.log('tttt');
+    wx.switchTab({
+      url: '../promptList/promptList'
     });
   },
   upper: function () {
@@ -193,7 +193,6 @@ Page({
   },
   getData: function () {
     var feed = util.getData2();
-    console.log("loaddata");
     var feed_data = feed.data;
     this.setData({
       feed: feed_data,
