@@ -1,6 +1,6 @@
 const QRCode = require('./weapp-qrcode-test.js');
 import rpx2px from '../../utils/rpx2px.js';
-
+const defaultImage = 'https://tse3-mm.cn.bing.net/th/id/OIP-C.FelwzQdlCWF4ptoWmTz7sQHaEK'
 let qrcode;
 
 const qrcodeWidth = rpx2px(300);
@@ -11,20 +11,34 @@ var app = getApp();
 
 Page({
   data: {
+    name:'',
+    desc:"",
+    imgUrl:"",
+    cateId:'',
+
     isQrcodeShown: false, // 控制 canvas 是否显示
     text: 'http://www.baidu.com',
     qrcodeWidth: qrcodeWidth,
     image: '',
     userInfo: {},
     title: "title2",
-    desc: "title2.aibox--微信小程序版...",
+    // desc: "title2.aibox--微信小程序版...",
     img: [
       'https://tse3-mm.cn.bing.net/th/id/OIP-C.FelwzQdlCWF4ptoWmTz7sQHaEK',
       'https://tse1-mm.cn.bing.net/th/id/OIP-C.PkKtfHdEp6YSv7qkgEBWEQHaEK',
       'https://tse1-mm.cn.bing.net/th/id/OIP-C.98oA77-4jq0gjpscFzbXKwHaE8'
     ],
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    const data = JSON.parse(decodeURIComponent(options.data));
+    console.log('product.js');
+    console.log(options);
+    this.setData({
+      name:data.name,
+      desc:data.description,
+      imgUrl:data.imgUrl ||defaultImage,
+      cateId:data.cateId,
+    });
     console.log('onLoad');
     this.initQrcode();
   },

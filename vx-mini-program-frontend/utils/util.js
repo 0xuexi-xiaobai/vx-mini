@@ -28,48 +28,42 @@ var prompt_content = require('../data/data_prompt_content.js')
 
 
 
-function getData(url){
-  return new Promise(function(resolve, reject){
-    wx.request({
-      url: url,
-      data: {},
-      header: {
-        //'Content-Type': 'application/json'
-      },
-      success: function(res) {
-        console.log("success")
-        resolve(res)
-      },
-      fail: function (res) {
-        reject(res)
-        console.log("failed")
-      }
-    })
-  })
-}
-// function getData(url, data, method) {
-  // const fullUrl = `${config.BASE_URL}${url}`;
-//   const jsonString = JSON.stringify(data);
-//   const fullUrl ='http://106.15.201.163:8080'+url;
-//   return new Promise((resolve, reject) => {
+// function getData(url){
+//   return new Promise(function(resolve, reject){
 //     wx.request({
-//       url: fullUrl,
-//       method: 'GET',
+//       url: url,
+//       data: {},
 //       header: {
-//         'Content-Type': 'application/json'
+//         //'Content-Type': 'application/json'
 //       },
-//       body :jsonString,
 //       success: function(res) {
-//         console.log("success");
-//         resolve(res);
+//         console.log("success")
+//         resolve(res)
 //       },
-//       fail: function(res) {
-//         reject(res);
-//         console.log("failed");
+//       fail: function (res) {
+//         reject(res)
+//         console.log("failed")
 //       }
-//     });
-//   });
+//     })
+//   })
 // }
+function getData(url, data) {
+  const fullUrl = `${config.BASE_URL}${url}`;
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: fullUrl,
+      method: 'GET',
+      data :data,
+      success: function(res) {
+        resolve(res.data);
+      },
+      fail: function(res) {
+        reject(res);
+        console.log("failed");
+      }
+    });
+  });
+}
 function getData2(){
   return index.index;
 }

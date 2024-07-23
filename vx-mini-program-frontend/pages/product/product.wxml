@@ -12,7 +12,7 @@
 </view>
 <!-- banner end -->
 <view class="container" bind:tap="hideModal">
-  <image class="img-with-margin" mode="aspectFill" class="img" src='https://tse3-mm.cn.bing.net/th/id/OIP-C.FelwzQdlCWF4ptoWmTz7sQHaEK'></image>
+  <image class="img-with-margin" mode="aspectFill" class="img" src="{{imgUrl}}"></image>
   <view class="tag-group">
     <view class="tag">aigc写作</view>
     <view class="tag">aigc工具</view>
@@ -20,7 +20,7 @@
 
   <view class="product_content">
     <view class="product_title">
-      {{title}}
+      {{name}}
     </view>
     <view class="product_desc">
       {{desc}}

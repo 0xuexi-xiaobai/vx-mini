@@ -14,14 +14,14 @@
 
   <view style="display: flex; justify-content: center;" class="child-element">
     <view class="swiper-container">
-      <swiper class="activity" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <swiper class="activity" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{8000}}" duration="{{1000}}" circular="{{true}}">
         <block wx:for="{{coverList}}" wx:key="id">
-          <swiper-item bindtap="bindItemTap">
+          <swiper-item bindtap="bindItemTap" data-item="{{item}}">
             <view class="slide-item">
-              <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+              <image src="{{item.imgUrl}}" class="slide-image" mode="aspectFill" />
               <view class="slide-text">
-                <view class="slide-title">{{ item.title }}</view>
-                <view class="slide-desc">{{ item.desc }}</view>
+                <view class="slide-title">{{ item.name }}</view>
+                <view class="slide-desc">{{ item.description }}</view>
               </view>
             </view>
           </swiper-item>
@@ -50,29 +50,24 @@
         </view>
       </view>
     </view>
-
-
-
   </view>
-
-
 
   <block wx:for="{{productList}}" wx:key="id">
     <view class="list-item" bindtap="toggleShowAll" data-index="{{index}}">
       <view class="title-section">
         <view class="title">
-          {{item.title}}
+          {{item.name}}
         </view>
         <view class="{{item.showAll ? 'arrow-down' : 'arrow-right'}}"></view>
       </view>
 
       <block wx:for="{{item.displayCells}}" wx:key="id">
-        <view class="cell" catchtap="bindItemTap" data-index="{{index}}.displayCells.{{index}}">
+        <view class="cell" catchtap="bindItemTap" data-item="{{item}}" data-index="{{index}}.displayCells.{{index}}">
           <view class="cell-content">
-            <image src="{{item.url}}" mode="aspectFill" class="image" />
+            <image src="{{item.logoUrl}}" mode="aspectFill" class="image" />
             <view class="details">
-              <text class="product-title" style="font-size: 25rpx;">{{item.productTitle}}</text>
-              <text class="product-desc" style="font-size: 20rpx; color: #666666;">{{item.productDesc}}</text>
+              <text class="product-title" style="font-size: 25rpx;">{{item.name}}</text>
+              <text class="product-desc" style="font-size: 20rpx; color: #666666;">{{item.description}}</text>
             </view>
           </view>
         </view>

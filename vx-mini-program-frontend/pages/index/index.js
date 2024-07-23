@@ -1,169 +1,40 @@
 //index.js
-
 var util = require('../../utils/util.js')
 var app = getApp()
 Page({
   data: {
-    banner: "banner",
-    recommendation: "今日推荐",
-    prompt: "prompt生成器",
-    productList: [
-      {
-        id: 0,
-        title: "AIGC热门推荐1",
-        cells: [
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长0",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长0.1",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长0",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长0.1",
-            productDesc: "说明文字"
-          },
-        ],
-        desc: "desc1",
-        showAll: false,
-        displayCells: []
-      },
-      {
-        id: 1,
-        title: "AIGC热门推荐2",
-        cells: [
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长1",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长1.1",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长1",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长1.1",
-            productDesc: "说明文字"
-          },
-        ],
-        desc: "desc1",
-        showAll: false,
-        displayCells: []
-      },
-      {
-        id: 2,
-        title: "AIGC热门推荐3",
-        cells: [
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长2",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长2.2",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长2",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长2.2",
-            productDesc: "说明文字"
-          },
-        ],
-        desc: "desc1",
-        showAll: false,
-        displayCells: []
-      },
-      {
-        id: 3,
-        title: "AIGC热门推荐4",
-        cells: [
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长4",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长4.2",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长4.2",
-            productDesc: "说明文字"
-          },
-          {
-            url: "../../images/24213.jpg",
-            productTitle: "标题文字说明文字很长4.2",
-            productDesc: "说明文字"
-          },
-        ],
-        desc: "desc1",
-        showAll: false,
-        displayCells: []
-      },
-    ],
-    showAll: false,
-    feed: [],
-    feed_length: 0,
-    title: "",
-    centerItem: 0,
-    coverList: [],
-    circular: true,
-    indicatorDots: true,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
+    productList: [],
+    coverList: []
   },
   onLoad: function () {
-    var that = this;
-    this.updateDisplayCells();
-    this.getData();
+    this.loadData();
   },
-  updateDisplayCells: function() {
-    let productList = this.data.productList.map(item => {
-      item.displayCells = item.showAll ? item.cells : item.cells.slice(0, 3);
-      return item;
-    });
-    this.setData({ productList });
-  },
-  toggleShowAll: function(e) {
+  toggleShowAll: function (e) {
     const index = e.currentTarget.dataset.index;
     const productList = this.data.productList;
     productList[index].showAll = !productList[index].showAll;
     this.updateDisplayCells();
+  },
+  updateDisplayCells: function() {
+    let productList = this.data.productList.map(item => {
+      console.log('index.js item',item);
+      item.displayCells = item.showAll ? item.productList : item.productList.slice(0, 3);
+      return item;
+    });
+    this.setData({ productList });
   },
   handleSwiperChange(e) {
     this.setData({
       centerItem: e.detail.current,
     });
   },
-  bindItemTap: function () {
+  bindItemTap: function (e) {
     console.log('Item Tapped');
+    const item = e.currentTarget.dataset.item;
+    console.log('item:',item);
     wx.navigateTo({
-      url: '../product/product'
+      // url: '../product/product',
+      url: '../product/product?data=' + encodeURIComponent(JSON.stringify({...item}))
     });
   },
   bindPromptTap: function () {
@@ -191,15 +62,36 @@ Page({
         console.log(data);
       });
   },
-  getData: function () {
-    var feed = util.getData2();
-    var feed_data = feed.data;
-    this.setData({
-      feed: feed_data,
-      feed_length: feed_data.length,
-      coverList: feed.coverList,
-      title: feed.title
-    });
+  loadData: function () {
+    console.log('index.js loadData');
+    const data = { page: 1, pageSize: 100 };
+    util.getData("/category/getCategoryList", data)
+      .then(function (res) {
+        const processedData = res.data.map(item => {
+          return {
+            ...item,
+            showAll: false,
+            displayCells: item.productList.slice(0, 3) || []
+          };
+        });
+        this.setData({
+          productList: processedData
+        });
+      }.bind(this))
+      .catch(function (error) {
+        console.error('Error fetching data:', error);
+      });
+
+    util.getData("/product/getRecommendedProductList")
+      .then(function (res) {
+        console.log('/product/getRecommendedProductList:',res);
+        this.setData({
+          coverList: res.data
+        });
+      }.bind(this))
+      .catch(function (error) {
+        console.error('Error fetching data:', error);
+      });
   },
   refresh: function () {
     wx.showToast({
