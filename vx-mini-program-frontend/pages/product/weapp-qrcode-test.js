@@ -1509,14 +1509,14 @@ var QRCode;
         var viewportSize = nSize * nCount;
         var size = viewportSize + 2 * margin;
 
-        console.log("rawSize", rawSize)
-        console.log("rawViewportSize", rawViewportSize)
-        console.log("nCount", nCount)
-        console.log("margin", margin)
-        console.log("whiteMargin", whiteMargin)
-        console.log("nSize", nSize)
-        console.log("viewportSize", viewportSize)
-        console.log("size", size)
+        // console.log("rawSize", rawSize)
+        // console.log("rawViewportSize", rawViewportSize)
+        // console.log("nCount", nCount)
+        // console.log("margin", margin)
+        // console.log("whiteMargin", whiteMargin)
+        // console.log("nSize", nSize)
+        // console.log("viewportSize", viewportSize)
+        // console.log("size", size)
 
         var gifBackground = undefined;
         var gifFrames = undefined;
@@ -1804,7 +1804,7 @@ var QRCode;
                 callback(res.tempFilePath)
             },
             fail: res => {
-                console.log(res)
+                // console.log(res)
             }
         })
     }

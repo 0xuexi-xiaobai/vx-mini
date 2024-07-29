@@ -50,7 +50,6 @@ const app = {
         }
       },
       fail(err) {
-        console.log(err)
       }
     })
   },

@@ -17,7 +17,7 @@ Page({
     cateId:'',
 
     isQrcodeShown: false, // 控制 canvas 是否显示
-    text: 'http://www.baidu.com',
+    url: 'http://www.baidu.com',
     qrcodeWidth: qrcodeWidth,
     image: '',
     userInfo: {},
@@ -31,19 +31,17 @@ Page({
   },
   onLoad: function (options) {
     const data = JSON.parse(decodeURIComponent(options.data));
-    console.log('product.js');
-    console.log(options);
+    console.log('data:',data);
     this.setData({
       name:data.name,
       desc:data.description,
-      imgUrl:data.imgUrl ||defaultImage,
+      imgUrl:data.imgUrl || defaultImage,
       cateId:data.cateId,
+      url:data.url
     });
-    console.log('onLoad');
     this.initQrcode();
   },
   hideModal: function (e) {
-    console.log('hideModal');
     this.setData({
       isQrcodeShown: false
     });
@@ -67,14 +65,12 @@ Page({
     });
   },
   toggleCanvas: function () {
-    console.log('toggleCanvas.');
     this.setData({ isQrcodeShown: true });
   },
   renderCode: function () {
     const z = this;
-    qrcode.makeCode(z.data.text, () => {
+    qrcode.makeCode(z.data.url, () => {
       qrcode.exportImage(function (path) {
-        console.log('Image path:', path);
         z.setData({
           image: path
         });

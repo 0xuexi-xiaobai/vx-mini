@@ -34,7 +34,7 @@ Component({
       this.setData({
         system
       });
-      console.log(this.data.system);
+      // console.log(this.data.system);
 
       // Use properties
       this.applyStyles();
@@ -64,7 +64,7 @@ Component({
       }
 
       // Apply the styles to your component (you need to define your own logic here)
-      console.log('Applied styles:', styles);
+      // console.log('Applied styles:', styles);
     }
   }
 });
