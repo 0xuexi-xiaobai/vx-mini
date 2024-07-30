@@ -47,7 +47,7 @@ Page({
             // 回调
             
             qrcode.exportImage(function(path) {
-                console.log(' imgsrc: path:',path);
+                // console.log(' imgsrc: path:',path);
                 z.setData({
                     imgsrc: path
                 })
@@ -66,11 +66,11 @@ Page({
     },
     renderCode(value) {
         const z = this
-        console.log('make handler')
+        // console.log('make handler')
         qrcode.makeCode(value, () => {
-            console.log('make')
+            // console.log('make')
             qrcode.exportImage(function(path) {
-                console.log(' imgsrc: path:',path)
+                // console.log(' imgsrc: path:',path)
                 z.setData({
                     imgsrc: path
                 })
@@ -88,17 +88,17 @@ Page({
     },
     // 长按保存
     save: function() {
-        console.log('save')
+        // console.log('save')
         wx.showActionSheet({
             itemList: ['保存图片'],
             success: function(res) {
-                console.log(res.tapIndex)
+                // console.log(res.tapIndex)
                 if (res.tapIndex == 0) {
                     qrcode.exportImage(function(path) {
                         wx.saveImageToPhotosAlbum({
                             filePath: path,
                             complete:res=>{
-                                console.log(res)
+                                // console.log(res)
                             }
                         })
                     })

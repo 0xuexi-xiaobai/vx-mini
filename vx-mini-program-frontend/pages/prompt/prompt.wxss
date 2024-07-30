@@ -32,8 +32,8 @@ image{
 }
 
 .activity {
-  width: 740rpx;
-  height: 440rpx;
+  width: 665rpx;
+  height: 950rpx;
 }
 
 .slide-item {

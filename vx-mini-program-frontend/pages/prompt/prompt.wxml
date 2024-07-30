@@ -1,4 +1,4 @@
-<view  class="vertical-stack">
+<view class="vertical-stack">
   <!-- banner -->
   <view class="page">
     <custom-navigation-bar id="customNavigationBar" bar-style="3" showBackButton='{{true}}'>
@@ -18,7 +18,7 @@
         <block wx:for="{{coverList}}" wx:key="id">
           <swiper-item bindtap="bindItemTap">
             <view class="slide-item">
-              <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+              <image src="{{item.url}}" class="slide-image" mode="aspectFit" />
             </view>
           </swiper-item>
         </block>
@@ -29,31 +29,13 @@
 
   <view class="container1">
     <view class="card" bindtap="copywxtap" style="margin-bottom: 10rpx; margin-top: 10rpx;">
-  <view class="card-header" style="background-color:#666 ;">
-    <view class="card-title">prompt</view>
-    <view class="card-tag">点击复制</view>
-  </view>
-  <view class="card-content" style="color: #f7f7f7; padding: 8px;">
-    {{prompt_content}}
-  </view>
-</view>
-    <!-- <fui-card background="black" style="margin-bottom: 10rpx; margin-top: 10rpx; width: 100%; height: 100rpx; box-sizing: border-box;">
-      <fui-input borderTop placeholder="请输入prompt" backgroundColor="#333333" color="#ffffff" bindconfirm="searchBtn"></fui-input>
-    </fui-card> -->
-  </view>
- 
-  <!-- 瀑布流 -->
-  <!-- <scroll-view type="custom" scroll-y style="box-sizing:border-box; padding: 30rpx;">
-    <grid-view type="masonry" main-axis-gap="{{10}}" cross-axis-gap="{{10}}">
-      <view wx:for="{{arr}}" wx:key="id" style="border:1rpx solid black; border-radius:20rpx;">
-        <view style="width: 100%;">
-          <image src="{{item.prompt_image}}" mode="widthFix" style="width: 100%; height: auto; border-radius:20rpx 20rpx 0 0;" />
-        </view>
-        <view style="font-size: 30rpx; margin-left: 5rpx;">
-          {{item.prompt}}
-        </view>
+      <view class="card-header" style="background-color:#666 ;">
+        <view class="card-title">prompt</view>
+        <view class="card-tag">点击复制</view>
       </view>
-    </grid-view>
-  </scroll-view> -->
+      <view class="card-content" style="color: #f7f7f7; padding: 8px;">
+        {{prompt_content}}
+      </view>
+    </view>
+  </view>
 </view>
-

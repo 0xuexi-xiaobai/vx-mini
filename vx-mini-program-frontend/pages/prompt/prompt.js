@@ -67,8 +67,6 @@ Page({
     })
   },
   searchBtn: function (event) {
-    console.log("你点击了键盘搜索键");
-    console.log(event.detail);
   },
   /**
    * 生命周期函数--监听页面加载
@@ -83,10 +81,7 @@ Page({
   //使用本地 fake 数据实现刷新效果
   getData: function () {
     var feed = util.getData2();
-    console.log("loaddata");
-    console.log(feed);
     var prompt_content0 = util.getPromptData();
-    console.log("load-prompt_content");
     this.setData({
       prompt_content: prompt_content0.content,
       coverList: feed.coverList,

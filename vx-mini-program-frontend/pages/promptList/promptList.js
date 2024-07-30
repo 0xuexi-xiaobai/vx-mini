@@ -66,20 +66,16 @@ Page({
     })
   },
   bindPromptTap: function () {
-    console.log('tttt');
     wx.navigateTo({
       url: '../prompt/prompt'
     });
   },
   searchBtn : function(event){ 
-    console.log("你点击了键盘搜索键") ;
-    console.log(event.detail);
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
     this.getData();
@@ -87,7 +83,6 @@ Page({
   //使用本地 fake 数据实现刷新效果
   getData: function () {
     var prompt_content0 = util.getPromptData();
-    console.log("load-prompt_content");
     this.setData({
       prompt_content: prompt_content0.content,
     });

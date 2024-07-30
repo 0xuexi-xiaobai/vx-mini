@@ -26,27 +26,6 @@ var index = require('../data/data_index.js')
 var index_next = require('../data/data_index_next.js')
 var prompt_content = require('../data/data_prompt_content.js')
 
-
-
-// function getData(url){
-//   return new Promise(function(resolve, reject){
-//     wx.request({
-//       url: url,
-//       data: {},
-//       header: {
-//         //'Content-Type': 'application/json'
-//       },
-//       success: function(res) {
-//         console.log("success")
-//         resolve(res)
-//       },
-//       fail: function (res) {
-//         reject(res)
-//         console.log("failed")
-//       }
-//     })
-//   })
-// }
 function getData(url, data) {
   const fullUrl = `${config.BASE_URL}${url}`;
   return new Promise((resolve, reject) => {
@@ -59,7 +38,6 @@ function getData(url, data) {
       },
       fail: function(res) {
         reject(res);
-        console.log("failed");
       }
     });
   });
