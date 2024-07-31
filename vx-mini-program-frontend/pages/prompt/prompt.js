@@ -7,38 +7,26 @@ Page({
    */
   data: {
     prompt_content: "",
-    coverList: [],
-    arr: [
+    coverList: [
       {
-        "num": 0,
-        "prompt": "prompt example. prompt example. prompt example. prompt example.",
-        "prompt_image": "../../images/24213.jpg",
-      }, {
-        "num": 1,
-        "prompt": "prompt test. prompt test. prompt test. prompt test.",
-        "prompt_image": "../../images/24280.jpg",
-      }, {
-        "num": 2,
-        "prompt": "prompt test22. prompt test22. prompt test22. prompt test22.",
-        "prompt_image": "../../images/1444983318907-_DSC1826.jpg",
-      }, {
-        "num": 3,
-        "prompt": "prompt test33. prompt test33. prompt test33. prompt test33.",
-        "prompt_image": "../../images/24213.jpg",
-      }, {
-        "num": 0,
-        "prompt": "prompt example. prompt example. prompt example. prompt example.",
-        "prompt_image": "../../images/24213.jpg",
-      }, {
-        "num": 1,
-        "prompt": "prompt test. prompt test. prompt test. prompt test.",
-        "prompt_image": "../../images/24280.jpg",
-      }, {
-        "num": 2,
-        "prompt": "prompt test22. prompt test22. prompt test22. prompt test22.",
-        "prompt_image": "../../images/1444983318907-_DSC1826.jpg",
+        id: 0,
+        url: "../../images/landscape1.jpg",
+        title:"title1",
+        desc:"desc1"
       },
-    ]
+      {
+        id: 1,
+        url: "../../images/landscape2.jpg",
+        title:"title2",
+        desc:"desc2"
+      },
+      {
+        id: 2,
+        url:'../../images/portrait.jpg',
+        title:"title3",
+        desc:"desc3"
+      }
+    ],
   },
   /**
    * 页面上拉触底事件的处理函数
@@ -71,22 +59,28 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-    wx.showTabBar();
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    this.getData();
-  },
-  //使用本地 fake 数据实现刷新效果
-  getData: function () {
-    var feed = util.getData2();
-    var prompt_content0 = util.getPromptData();
+  onLoad: function (options) {
+    // wx.showTabBar();
+    // console.log('onLoad')
+    // var that = this
+    // //调用应用实例的方法获取全局数据
+    // this.getData();
+    const data = JSON.parse(decodeURIComponent(options.data));
+    console.log('data:',data);
     this.setData({
-      prompt_content: prompt_content0.content,
-      coverList: feed.coverList,
+      prompt_content:data.value,
+
     });
   },
+  // //使用本地 fake 数据实现刷新效果
+  // getData: function () {
+  //   var feed = util.getData2();
+  //   var prompt_content0 = util.getPromptData();
+  //   this.setData({
+  //     prompt_content: prompt_content0.content,
+  //     coverList: feed.coverList,
+  //   });
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

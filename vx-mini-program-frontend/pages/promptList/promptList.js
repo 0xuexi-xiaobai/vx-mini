@@ -29,9 +29,11 @@ Page({
 
     })
   },
-  bindPromptTap: function () {
+  bindPromptTap: function (e) {
+    const item = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '../prompt/prompt'
+      // url: '../product/product',
+      url: '../prompt/prompt?data=' + encodeURIComponent(JSON.stringify({ ...item }))
     });
   },
   searchBtn: function (e) {
