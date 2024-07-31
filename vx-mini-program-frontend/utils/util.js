@@ -42,6 +42,27 @@ function getData(url, data) {
     });
   });
 }
+
+function postData(url, data) {
+  const fullUrl = `${config.BASE_URL}${url}`;
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: fullUrl,
+      method: 'POST',
+      data: data, 
+      header: { 
+        'content-type': 'application/json' 
+      },  
+      success: function(res) {
+        resolve(res.data);
+      },
+      fail: function(res) {
+        reject(res);
+      }
+    });
+  });
+}
+
 function getData2(){
   return index.index;
 }
@@ -59,6 +80,7 @@ function getNext(){
 
 
 module.exports.getData = getData;
+module.exports.postData = postData;
 module.exports.getData2 = getData2;
 module.exports.getNext = getNext;
 module.exports.getPromptData = getPromptData;

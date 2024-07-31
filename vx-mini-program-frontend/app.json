@@ -28,7 +28,7 @@
         "selectedIconPath": "images/index_focus.png"
       }, {
         "pagePath": "pages/promptList/promptList",
-        "text": "活+动",
+        "text": "提示词",
         "iconPath": "images/discovery.png",
         "selectedIconPath": "images/discovery_focus.png"
       },

@@ -6,53 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    prompt_content: "",
-    arr: [
-      {
-        "num": 0,
-        "prompt": "prompt example. prompt example. prompt example. prompt example.",
-        "prompt_image": "../../images/24213.jpg",
-      }, {
-        "num": 1,
-        "prompt": "prompt test. prompt test. prompt test. prompt test.",
-        "prompt_image": "../../images/24280.jpg",
-      },{
-        "num": 2,
-        "prompt": "prompt test22. prompt test22. prompt test22. prompt test22.",
-        "prompt_image": "../../images/1444983318907-_DSC1826.jpg",
-      },{
-        "num": 3,
-        "prompt": "prompt test33. prompt test33. prompt test33. prompt test33.",
-        "prompt_image": "../../images/24213.jpg",
-      },{
-        "num": 0,
-        "prompt": "prompt example. prompt example. prompt example. prompt example.",
-        "prompt_image": "../../images/24213.jpg",
-      }, {
-        "num": 1,
-        "prompt": "prompt test. prompt test. prompt test. prompt test.",
-        "prompt_image": "../../images/24280.jpg",
-      },{
-        "num": 2,
-        "prompt": "prompt test22. prompt test22. prompt test22. prompt test22.",
-        "prompt_image": "../../images/1444983318907-_DSC1826.jpg",
-      },
-    ]
+    prompt_content: "请输入prompt。等待生成...",
+    arr: []
   },
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-    // let newArr = [5, 3, 4, 7, 8, 2, 1, 5, 7, 6]
-    // this.setData({ arr: [...this.data.arr, ...newArr] })
-    // this.setData({ arr: this.data.arr })
+
   },
   // 点击复制
   copywxtap: function (event) {
-    // wx.showToast({
-    //   title: '复制成功',
-    // })
-
     wx.setClipboardData({
       data: this.data.prompt_content, //复制的数据
       // success: function (res) {
@@ -70,22 +34,47 @@ Page({
       url: '../prompt/prompt'
     });
   },
-  searchBtn : function(event){ 
+  searchBtn: function (e) {
+    const item = e.detail.value;
+
+    console.log(item);
+    const prompt = {"prompt":item}
+    util.postData("/user/callDashScope",prompt)
+      .then(function (res) {
+        console.log(res.prompt);
+        this.setData({
+          prompt_content:res.prompt
+        })
+      }
+        .bind(this)
+      )
+      .catch(function (error) {
+        console.error('Error fetching data:', error);
+      });
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    var that = this
-    //调用应用实例的方法获取全局数据
-    this.getData();
+    const data = { page: 1, pageSize: 100 };
+    util.getData("/prompt/getPromptList",data)
+      .then(function (res) {
+        this.setData({
+          arr: res.data
+        });
+      }
+        .bind(this)
+      )
+      .catch(function (error) {
+        console.error('Error fetching data:', error);
+      });
   },
   //使用本地 fake 数据实现刷新效果
   getData: function () {
-    var prompt_content0 = util.getPromptData();
-    this.setData({
-      prompt_content: prompt_content0.content,
-    });
+    // var prompt_content0 = util.getPromptData();
+    // this.setData({
+    //   prompt_content: prompt_content0.content,
+    // });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

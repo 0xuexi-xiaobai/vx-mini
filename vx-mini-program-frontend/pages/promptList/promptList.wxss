@@ -7,9 +7,12 @@
 }
 
 .prompt-content {
+  width:650rpx;
+  height: 400rpx;
   white-space: normal;
   word-wrap: break-word;
-  word-break: break-all;
+  word-break: break-all;overflow-y: auto;
+  display: block; 
 }
 image{
   width: 100%;

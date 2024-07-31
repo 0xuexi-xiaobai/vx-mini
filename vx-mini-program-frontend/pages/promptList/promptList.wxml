@@ -19,11 +19,12 @@
   </fui-card>
 </view>
 
+<!-- water fall -->
 <scroll-view type="custom" scroll-y style="box-sizing:border-box; padding: 30rpx;">
   <grid-view type="masonry" main-axis-gap="{{10}}" cross-axis-gap="{{10}}">
     <view wx:for="{{arr}}" style="border:1rpx solid black; border-radius:20rpx;">
       <view style="width: 100%;">
-        <image src="{{item.prompt_image}}" bindtap="bindPromptTap" mode="widthFix" style="width: 100%; height: auto; border-radius:20rpx ;" />
+        <image src="{{item.imgUrl}}" bindtap="bindPromptTap" mode="widthFix" style="width: 100%; height: auto; border-radius:20rpx ;" />
       </view>
       <view style="font-size: 30rpx; margin-left: 5rpx;">
         <!-- {{item.prompt}} -->

@@ -15,7 +15,7 @@ Page({
     productList[index].showAll = !productList[index].showAll;
     this.updateDisplayCells();
   },
-  updateDisplayCells: function() {
+  updateDisplayCells: function () {
     let productList = this.data.productList.map(item => {
       item.displayCells = item.showAll ? item.productList : item.productList.slice(0, 3);
       return item;
@@ -31,7 +31,7 @@ Page({
     const item = e.currentTarget.dataset.item;
     wx.navigateTo({
       // url: '../product/product',
-      url: '../product/product?data=' + encodeURIComponent(JSON.stringify({...item}))
+      url: '../product/product?data=' + encodeURIComponent(JSON.stringify({ ...item }))
     });
   },
   bindPromptTap: function () {
@@ -80,7 +80,9 @@ Page({
         this.setData({
           coverList: res.data
         });
-      }.bind(this))
+      }
+        .bind(this)
+      )
       .catch(function (error) {
         console.error('Error fetching data:', error);
       });
