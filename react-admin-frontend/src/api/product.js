@@ -16,6 +16,17 @@ export function deleteProduct(id) {
   })
 }
 
+export function getProduct( ) {
+  return request({
+    url: '/category/getCategoryList',
+    method: 'get',
+    params: { 
+      page: 1,
+      pageSize: 100,
+    }
+  });
+}
+
 export function updateProduct(data) {
   return request({
     url: '/banner',

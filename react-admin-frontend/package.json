@@ -1,9 +1,10 @@
 {
   "name": "react_antd_admin_template",
   "version": "1.0.0",
-  "author": "NLRX <414961362@qq.com>",
+  "author": "NLRX <qq@qq.com>",
   "license": "MIT",
   "private": true,
+  "proxy": "http://106.15.201.163:8080",
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
     "@testing-library/jest-dom": "^4.2.4",
@@ -32,6 +33,7 @@
     "react-document-title": "^2.0.3",
     "react-dom": "^16.13.1",
     "react-draft-wysiwyg": "^1.14.5",
+    "react-id-swiper": "^4.0.0",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
@@ -43,6 +45,7 @@
     "screenfull": "^5.0.2",
     "script-loader": "^0.7.2",
     "sonner": "^1.5.0",
+    "swiper": "^11.1.9",
     "xlsx": "^0.16.0"
   },
   "scripts": {
